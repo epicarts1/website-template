@@ -1,0 +1,25 @@
+# Dependencies
+node_modules/
+
+# Build
+.next/
+out/
+build/
+
+# Environment
+.env
+.env.local
+.env.*.local
+
+# IDE
+.vscode/
+.idea/
+*.swp
+.DS_Store
+
+# Payload
+media/
+
+# Debug
+npm-debug.log*
+*.log

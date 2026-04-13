@@ -1,0 +1,54 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+
+@layer base {
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    color: #0A0A0A;
+    background-color: #ffffff;
+    line-height: 1.6;
+  }
+
+  ::selection {
+    background-color: rgba(252, 64, 175, 0.2);
+    color: #0A0A0A;
+  }
+}
+
+@layer components {
+  .brand-gradient-text {
+    @apply bg-clip-text text-transparent bg-brand-gradient;
+  }
+
+  .brand-gradient-border {
+    position: relative;
+    border-radius: 16px;
+    background: white;
+  }
+
+  .brand-gradient-border::before {
+    content: '';
+    position: absolute;
+    inset: -2px;
+    border-radius: 18px;
+    background: linear-gradient(135deg, #ff2d2a 0%, #fc40af 50%, #a6bef4 100%);
+    z-index: -1;
+  }
+}
