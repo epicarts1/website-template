@@ -9,7 +9,10 @@
     "build": "cross-env NODE_OPTIONS='--no-deprecation' next build",
     "start": "next start",
     "generate:types": "payload generate:types",
-    "generate:schema": "payload-graphql generate:schema"
+    "generate:schema": "payload-graphql generate:schema",
+    "test:e2e": "playwright test",
+    "test:e2e:ui": "playwright test --ui",
+    "test:lighthouse": "lhci autorun"
   },
   "dependencies": {
     "@payloadcms/db-postgres": "^3.0.0",
@@ -26,6 +29,8 @@
     "sharp": "^0.33.0"
   },
   "devDependencies": {
+    "@lhci/cli": "^0.15.1",
+    "@playwright/test": "^1.59.1",
     "@types/node": "^22.0.0",
     "@types/react": "^19.0.0",
     "@types/react-dom": "^19.0.0",

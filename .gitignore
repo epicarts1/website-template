@@ -25,3 +25,7 @@ npm-debug.log*
 *.log
 .vercel
 .env*.local
+test-results/
+playwright-report/
+playwright/.cache/
+.lighthouseci/
