@@ -24,3 +24,4 @@ media/
 npm-debug.log*
 *.log
 .vercel
+.env*.local
