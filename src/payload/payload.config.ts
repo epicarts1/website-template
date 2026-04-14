@@ -1,5 +1,9 @@
 import path from 'path'
+import { fileURLToPath } from 'url'
 import { buildConfig } from 'payload'
+
+const __filename = fileURLToPath(import.meta.url)
+const __dirname = path.dirname(__filename)
 import { postgresAdapter } from '@payloadcms/db-postgres'
 import { lexicalEditor } from '@payloadcms/richtext-lexical'
 import { vercelBlobStorage } from '@payloadcms/storage-vercel-blob'

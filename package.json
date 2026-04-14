@@ -2,6 +2,7 @@
   "name": "epicarts-website-template",
   "version": "1.0.0",
   "private": true,
+  "type": "module",
   "description": "Epic Arts Website Factory — Next.js 14 + Payload CMS v3 + Vercel",
   "scripts": {
     "dev": "cross-env NODE_OPTIONS='--no-deprecation' next dev",
