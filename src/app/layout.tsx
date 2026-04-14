@@ -1,26 +1,9 @@
-import type { Metadata } from 'next'
-import { Inter } from 'next/font/google'
-import './globals.css'
-
-const inter = Inter({
-  subsets: ['latin'],
-  display: 'swap',
-  variable: '--font-inter',
-})
-
-export const metadata: Metadata = {
-  title: 'Epic Arts',
-  description: 'Creative Agency for Digital Excellence',
+// Minimal root layout — each route group ((frontend) and (payload)) defines its own html/body.
+export default function RootLayout({ children }: { children: React.ReactNode }) {
+  return children
 }
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode
-}) {
-  return (
-    <html lang="de" className={inter.variable}>
-      <body className="antialiased font-sans">{children}</body>
-    </html>
-  )
+export const metadata = {
+  title: 'Epic Arts',
+  description: 'Creative Agency for Digital Excellence',
 }
