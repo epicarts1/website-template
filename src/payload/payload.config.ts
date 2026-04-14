@@ -22,8 +22,6 @@ export default buildConfig({
     user: Users.slug,
     meta: {
       titleSuffix: ' | Epic Arts CMS',
-      favicon: '/brand/favicon.png',
-      ogImage: '/brand/og.png',
     },
   },
 

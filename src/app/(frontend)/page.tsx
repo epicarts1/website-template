@@ -1,17 +1,21 @@
 import { getPayloadClient } from '@/lib/payload'
 import { BlockRenderer } from '@/components/blocks/BlockRenderer'
 
-export default async function HomePage() {
-  const payload = await getPayloadClient()
+export const dynamic = 'force-dynamic'
 
-  const pages = await payload.find({
-    collection: 'pages',
-    where: {
-      slug: { equals: 'home' },
-      status: { equals: 'published' },
-    },
-    limit: 1,
-  })
+export default async function HomePage() {
+  let pages: any = { docs: [] }
+  try {
+    const payload = await getPayloadClient()
+    pages = await payload.find({
+      collection: 'pages',
+      where: {
+        slug: { equals: 'home' },
+        status: { equals: 'published' },
+      },
+      limit: 1,
+    })
+  } catch {}
 
   const page = pages.docs[0]
 

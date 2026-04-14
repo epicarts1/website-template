@@ -8,15 +8,19 @@ export const metadata: Metadata = {
   description: 'Insights, Tipps und News von Epic Arts',
 }
 
-export default async function BlogPage() {
-  const payload = await getPayloadClient()
+export const dynamic = 'force-dynamic'
 
-  const posts = await payload.find({
-    collection: 'posts',
-    where: { status: { equals: 'published' } },
-    sort: '-publishedAt',
-    limit: 50,
-  })
+export default async function BlogPage() {
+  let posts: any = { docs: [] }
+  try {
+    const payload = await getPayloadClient()
+    posts = await payload.find({
+      collection: 'posts',
+      where: { status: { equals: 'published' } },
+      sort: '-publishedAt',
+      limit: 50,
+    })
+  } catch {}
 
   return (
     <section className="py-24 px-6">
@@ -30,7 +34,7 @@ export default async function BlogPage() {
           <p className="text-brand-muted">Noch keine Beitr&auml;ge vorhanden.</p>
         ) : (
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {posts.docs.map((post) => {
+            {posts.docs.map((post: any) => {
               const featuredImage = post.featuredImage as any
               return (
                 <Link

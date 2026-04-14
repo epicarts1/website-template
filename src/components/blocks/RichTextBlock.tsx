@@ -38,7 +38,7 @@ function serializeNode(node: RichTextNode, index: number): React.ReactNode {
 
   switch (node.type) {
     case 'heading':
-      const HeadingTag = (node.tag || 'h2') as keyof JSX.IntrinsicElements
+      const HeadingTag = (node.tag || 'h2') as React.ElementType
       return <HeadingTag key={index} className="font-bold mt-8 mb-4">{children}</HeadingTag>
 
     case 'paragraph':

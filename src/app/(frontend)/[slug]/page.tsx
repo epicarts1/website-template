@@ -7,23 +7,12 @@ type Args = {
   params: Promise<{ slug: string }>
 }
 
-export async function generateStaticParams() {
-  const payload = await getPayloadClient()
-  const pages = await payload.find({
-    collection: 'pages',
-    where: { status: { equals: 'published' } },
-    limit: 100,
-    select: { slug: true },
-  })
-
-  return pages.docs
-    .filter((page) => page.slug !== 'home')
-    .map((page) => ({ slug: page.slug }))
-}
+export const dynamic = 'force-dynamic'
 
 export async function generateMetadata({ params }: Args): Promise<Metadata> {
   const { slug } = await params
-  const payload = await getPayloadClient()
+  let payload
+  try { payload = await getPayloadClient() } catch { return {} }
 
   const pages = await payload.find({
     collection: 'pages',
