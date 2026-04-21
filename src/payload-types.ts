@@ -242,9 +242,22 @@ export interface Page {
                   id?: string | null;
                 }[]
               | null;
+            showPlaceholders?: boolean | null;
+            placeholderCount?: number | null;
+            placeholderLabel?: string | null;
             id?: string | null;
             blockName?: string | null;
             blockType: 'gallery';
+          }
+        | {
+            heading: string;
+            subheading?: string | null;
+            members?: (number | TeamMember)[] | null;
+            showPlaceholders?: boolean | null;
+            placeholderCount?: number | null;
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'team';
           }
         | {
             heading: string;
@@ -344,6 +357,22 @@ export interface Testimonial {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "team-members".
+ */
+export interface TeamMember {
+  id: number;
+  name: string;
+  role: string;
+  bio?: string | null;
+  photo?: (number | null) | Media;
+  email?: string | null;
+  linkedin?: string | null;
+  order?: number | null;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "posts".
  */
 export interface Post {
@@ -399,22 +428,6 @@ export interface Service {
   ctaLabel?: string | null;
   ctaLink?: string | null;
   image?: (number | null) | Media;
-  order?: number | null;
-  updatedAt: string;
-  createdAt: string;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "team-members".
- */
-export interface TeamMember {
-  id: number;
-  name: string;
-  role: string;
-  bio?: string | null;
-  photo?: (number | null) | Media;
-  email?: string | null;
-  linkedin?: string | null;
   order?: number | null;
   updatedAt: string;
   createdAt: string;
@@ -685,6 +698,20 @@ export interface PagesSelect<T extends boolean = true> {
                     caption?: T;
                     id?: T;
                   };
+              showPlaceholders?: T;
+              placeholderCount?: T;
+              placeholderLabel?: T;
+              id?: T;
+              blockName?: T;
+            };
+        team?:
+          | T
+          | {
+              heading?: T;
+              subheading?: T;
+              members?: T;
+              showPlaceholders?: T;
+              placeholderCount?: T;
               id?: T;
               blockName?: T;
             };

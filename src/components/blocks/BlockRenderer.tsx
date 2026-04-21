@@ -8,6 +8,7 @@ import { PricingBlock } from './PricingBlock'
 import { GalleryBlock } from './GalleryBlock'
 import { ContactBlock } from './ContactBlock'
 import { RichTextBlock } from './RichTextBlock'
+import { TeamBlock } from './TeamBlock'
 
 const blockComponents: Record<string, React.FC<any>> = {
   hero: HeroBlock,
@@ -17,6 +18,7 @@ const blockComponents: Record<string, React.FC<any>> = {
   faq: FAQBlock,
   pricing: PricingBlock,
   gallery: GalleryBlock,
+  team: TeamBlock,
   contact: ContactBlock,
   richtext: RichTextBlock,
 }

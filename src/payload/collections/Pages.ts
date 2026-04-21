@@ -8,6 +8,7 @@ import { Pricing } from '../blocks/Pricing'
 import { Gallery } from '../blocks/Gallery'
 import { ContactBlock } from '../blocks/ContactBlock'
 import { RichTextBlock } from '../blocks/RichTextBlock'
+import { TeamBlock } from '../blocks/TeamBlock'
 
 export const Pages: CollectionConfig = {
   slug: 'pages',
@@ -54,7 +55,7 @@ export const Pages: CollectionConfig = {
       name: 'layout',
       type: 'blocks',
       label: 'Layout',
-      blocks: [Hero, Features, CTA, TestimonialsBlock, FAQ, Pricing, Gallery, ContactBlock, RichTextBlock],
+      blocks: [Hero, Features, CTA, TestimonialsBlock, FAQ, Pricing, Gallery, TeamBlock, ContactBlock, RichTextBlock],
     },
     {
       name: 'status',
